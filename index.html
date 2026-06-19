@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A futuristic cyberpunk-themed Ping Pong arcade game with neon glow effects, AI opponent, and responsive design." />
+  <title>PING PONG — Neon Arcade</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════ START SCREEN ═══════════════════════════ -->
+  <div id="start-screen">
+    <!-- Animated Title -->
+    <div class="title-container">
+      <span class="title-ping">PING</span>
+      <span class="title-pong">PONG</span>
+    </div>
+
+    <!-- Game Mode -->
+    <div class="menu-section">
+      <span class="menu-label">Game Mode</span>
+      <div class="mode-selector">
+        <button class="mode-btn selected" data-mode="pvp" id="btn-pvp">2 Players</button>
+        <button class="mode-btn" data-mode="ai" id="btn-ai">vs AI</button>
+      </div>
+    </div>
+
+    <!-- Difficulty (shown only for AI) -->
+    <div class="menu-section" id="difficulty-section" style="opacity:0.3; pointer-events:none;">
+      <span class="menu-label">Difficulty</span>
+      <div class="difficulty-selector">
+        <button class="diff-btn" data-diff="easy" id="btn-easy">Easy</button>
+        <button class="diff-btn selected" data-diff="medium" id="btn-medium">Medium</button>
+        <button class="diff-btn" data-diff="hard" id="btn-hard">Hard</button>
+      </div>
+    </div>
+
+    <!-- Start Button -->
+    <button id="start-btn">START GAME</button>
+  </div>
+
+  <!-- ═══════════════════════════ GAME CONTAINER ═════════════════════════ -->
+  <div id="game-container" style="display:none;">
+
+    <!-- Scoreboard -->
+    <div id="scoreboard">
+      <span class="score-player1" id="score-p1">0</span>
+      <span class="score-divider">:</span>
+      <span class="score-player2" id="score-p2">0</span>
+    </div>
+
+    <!-- HUD Bar -->
+    <div id="hud-bar">
+      <span>W / S</span>
+      <span id="mode-label">2 Players</span>
+      <span>↑ / ↓</span>
+    </div>
+
+    <!-- Canvas Wrapper -->
+    <div style="position:relative;">
+      <canvas id="game-canvas"></canvas>
+      <!-- Pause Overlay -->
+      <div id="pause-overlay">
+        <span>PAUSED</span>
+      </div>
+    </div>
+
+    <!-- Controls Footer -->
+    <div id="controls-footer">
+      <button class="control-btn" id="btn-sound" title="Toggle Sound">🔊 SOUND</button>
+      <button class="control-btn pink" id="btn-pause" title="Pause / Resume (Space)">⏸ PAUSE</button>
+      <button class="control-btn" id="btn-restart" title="Restart Game">↻ RESTART</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════ WIN SCREEN ═════════════════════════════ -->
+  <div id="win-screen">
+    <h1 id="win-text"></h1>
+    <p id="win-score"></p>
+    <button id="restart-btn">PLAY AGAIN</button>
+  </div>
+
+  <!-- ═══════════════════════════ TOUCH CONTROLS ═════════════════════════ -->
+  <div id="touch-controls">
+    <div class="touch-zone">
+      <button class="touch-btn blue" data-action="p1-up">▲</button>
+      <button class="touch-btn blue" data-action="p1-down">▼</button>
+    </div>
+    <div class="touch-zone">
+      <button class="touch-btn pink" data-action="p2-up">▲</button>
+      <button class="touch-btn pink" data-action="p2-down">▼</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
